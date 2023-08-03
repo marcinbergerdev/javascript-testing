@@ -1,6 +1,6 @@
 .tests-content {
   display: grid;
-  grid-template-rows: 2fr 1fr 2fr 1fr;
+  grid-template-rows: 3fr 1fr 3fr 1fr;
   grid-template-columns: 1fr;
   align-items: center;
   grid-template-areas:
@@ -81,11 +81,18 @@
 .test-image {
   position: relative;
   grid-area: img;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
   text-align: center;
+  
+  @media(width >= 1024px){
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 
   img {
     width: 95%;
