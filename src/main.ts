@@ -8,7 +8,6 @@ renderListContainer();
 
 
 const formNumber = document.querySelector<HTMLFormElement>('#formNumber')!;
-const resultOutput = document.querySelector<HTMLParagraphElement>('.output')!;
 
 const formResultHandler = (e: SubmitEvent) => {
   e.preventDefault();
