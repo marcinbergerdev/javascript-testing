@@ -1,6 +1,6 @@
 import { validateStringNotEmpty, validateNumber } from "./validation";
 
-export function transformToNumber(value: any) {
+export function transformToNumber(value: string | number) {
    return +value;
 }
 

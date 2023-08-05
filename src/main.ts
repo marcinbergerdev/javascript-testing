@@ -19,6 +19,4 @@ const formResultHandler = (e: SubmitEvent) => {
  
 }
 
-
-
 formNumber.addEventListener('submit', formResultHandler);

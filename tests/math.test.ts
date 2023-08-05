@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { addNumbers } from "../src/utils/math";
 
-describe("math/addNumbers", () => {
+describe("addNumbers()", () => {
    it("should yield number if not numeric string is provided", () => {
       const strings = ["25", "25"];
 
