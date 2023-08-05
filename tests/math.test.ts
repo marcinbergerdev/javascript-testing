@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { addNumbers } from "../src/utils/math";
 
 describe("addNumbers()", () => {
+
    it("should yield number if not numeric string is provided", () => {
       const strings = ["25", "25"];
 
@@ -22,7 +23,6 @@ describe("addNumbers()", () => {
       const strings = ["1", "24"];
 
       const result = addNumbers(strings); 
-
 
       const sum = strings.reduce(
          (preValue: number, currValue: string | number) => {
