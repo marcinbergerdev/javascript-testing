@@ -1,4 +1,5 @@
 import { CalcNumber } from "./calculatesNumber/CalcNumber.ts";
+import { ValidStrings } from "./calculatesNumber/ValidStrings.ts";
 import "../../scss/TestContainer.scss";
 
 export function renderListContainer() {
@@ -7,6 +8,9 @@ export function renderListContainer() {
    <ul>
     <li class="test-content">
       ${CalcNumber}
+    </li>
+    <li class="test-content">
+      ${ValidStrings}
     </li>
   </ul>
   `;

@@ -8,8 +8,9 @@ renderListContainer();
 
 
 const formNumber = document.querySelector<HTMLFormElement>('#formNumber')!;
+const formString = document.querySelector<HTMLFormElement>('#formString')!;
 
-const formResultHandler = (e: SubmitEvent) => {
+const formNumberResultHandler = (e: SubmitEvent) => {
   e.preventDefault();
   const extractNumberValue = extractNumberInputs(formNumber);
 
@@ -19,4 +20,17 @@ const formResultHandler = (e: SubmitEvent) => {
  
 }
 
-formNumber.addEventListener('submit', formResultHandler);
+
+const formStringResultHandler = (e: SubmitEvent) => {
+  e.preventDefault();
+  const form = new FormData(formString);
+  const text1 = form.get('text1');
+  const text2 = form.get('text2');
+  const num3 = form.get('num3');
+  const text4 = form.get('text4');
+
+}
+
+
+formNumber.addEventListener('submit', formNumberResultHandler);
+formString.addEventListener('submit', formStringResultHandler);
