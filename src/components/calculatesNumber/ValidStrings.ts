@@ -29,7 +29,7 @@ export const ValidStrings = `
 
   <section class="result-container">
     <p class="result-container__title">Result</p>
-    <p class="result-container__result output">...</p>
+    <div class="result-container__result stringOutput">...</div>
   </section>
 
   <section class="test-images">

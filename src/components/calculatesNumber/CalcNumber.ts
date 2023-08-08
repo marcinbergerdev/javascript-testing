@@ -2,7 +2,7 @@ export const CalcNumber = `
   <header class='test-header'>
     <h2>Numbers Validation</h2>
   </header>
-  
+
   <form class="form" action="" id="formNumber">
     <div class="form__box">
     <label for="num1">First Number</label>
@@ -19,7 +19,7 @@ export const CalcNumber = `
 
   <section class="result-container">
     <p class="result-container__title">Result</p>
-    <p class="result-container__result output">...</p>
+    <p class="result-container__result numberOutput">...</p>
   </section>
 
   <section class="test-images">

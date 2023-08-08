@@ -96,6 +96,7 @@
    align-self: center;
    text-align: center;
    font-size: 2rem;
+   width: min(70%, 70rem);
 
    &__title {
       font-size: 3rem;
@@ -103,6 +104,10 @@
 
    &__result {
       margin-top: 3rem;
+   }
+
+   @media (width >= 1024px) {
+      margin: 0 auto;
    }
 }
 

@@ -11,6 +11,6 @@ export function validateResult(result: string){
 
 
 export function outputResult(resultText: string){
-  const output = document.querySelector<HTMLParagraphElement>('.output')!;
+  const output = document.querySelector<HTMLParagraphElement>('.numberOutput')!;
   output.textContent = resultText;
 }

@@ -1,0 +1,15 @@
+.user-list-data {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem 0;
+}
+
+.user-element-data {
+   display: flex;
+   justify-content: space-between;
+
+   &__title {
+      font-size: 2rem;
+      justify-self: flex-start;
+   }
+}

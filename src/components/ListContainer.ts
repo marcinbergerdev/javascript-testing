@@ -1,6 +1,7 @@
 import { CalcNumber } from "./calculatesNumber/CalcNumber.ts";
 import { ValidStrings } from "./calculatesNumber/ValidStrings.ts";
 import "../../scss/TestContainer.scss";
+import "../../scss/ValidString.scss"
 
 export function renderListContainer() {
    const app = document.querySelector<HTMLDivElement>("#app")!;
