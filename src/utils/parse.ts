@@ -11,3 +11,25 @@ export function extractNumberInputs(form: HTMLFormElement) {
 
    return numberInputs;
 }
+
+
+export interface Person {
+   [key: string | number]: FormDataEntryValue
+}
+
+export function extractString(form: FormData) {
+    const person: Person = {
+      firstName: form.get("text1")!,
+      secondName: form.get("text2")!,
+      age: form.get("num3")!,
+      profession: form.get("text4")!,
+   };
+   return person;
+}
+
+export function extractStringInputs(form: HTMLFormElement) {
+   const formData = new FormData(form)!;
+   const stringInput = extractString(formData);
+
+   return stringInput;
+}
