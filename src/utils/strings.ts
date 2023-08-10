@@ -3,7 +3,7 @@ import { Person } from "./parse";
 
 
 export function transformToSpecificTypeArrayOfData(personData: Person) {
-   const transformData: (string | number | File)[] = [];
+   const transformData: (string | number)[] = [];
 
    for (const data in personData) {
       if (data === "age") {

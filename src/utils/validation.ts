@@ -14,18 +14,17 @@ export function validateNumber(number: any) {
 
 export function validatePersonDataNotEmpty(person: Person) {
    for (const data in person) {
-      const personData = person[data].toString();
+      const personData = person[data];
       if (personData.trim().length === 0) {
          throw new Error("Invalid - all input are invalid");
       }
    }
 }
 
-export function validatePersonDataSpecificType(typedData: (string | number | File)[]) {
+export function validatePersonDataAgeType(typedData: (string | number)[]) {
    typedData.forEach((data) => {
       if (Number.isNaN(data)) {
-         throw new Error('Invalid - Age input must be number!');
+         throw new Error("Invalid - Age input must be number!");
       }
-      return;
    });
 }

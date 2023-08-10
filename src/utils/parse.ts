@@ -14,15 +14,15 @@ export function extractNumberInputs(form: HTMLFormElement) {
 
 
 export interface Person {
-   [key: string | number]: FormDataEntryValue
+   [key: string]: string;
 }
 
 export function extractString(form: FormData) {
-    const person: Person = {
-      firstName: form.get("text1")!,
-      secondName: form.get("text2")!,
-      age: form.get("num3")!,
-      profession: form.get("text4")!,
+    const person = {
+      firstName: String(form.get("text1")),
+      secondName: String(form.get("text2")),
+      age: String(form.get("num3")),
+      profession: String(form.get("text4")),
    };
    return person;
 }
