@@ -27,7 +27,7 @@ export function calculateResult(numberValues: any) {
 }
 
 export function calculateData(personData: Person) {
-   let transformResult: (string | number)[] | string = [];
+   let transformResult: string | (string | number)[] = [];
 
    try {
       validatePersonDataNotEmpty(personData);

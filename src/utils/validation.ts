@@ -12,6 +12,8 @@ export function validateNumber(number: any) {
    }
 }
 
+
+
 export function validatePersonDataNotEmpty(person: Person) {
    for (const data in person) {
       const personData = person[data];
@@ -20,7 +22,6 @@ export function validatePersonDataNotEmpty(person: Person) {
       }
    }
 }
-
 export function validatePersonDataAgeType(typedData: (string | number)[]) {
    typedData.forEach((data) => {
       if (Number.isNaN(data)) {
