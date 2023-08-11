@@ -15,6 +15,12 @@ export function outputNumberResult(resultText: string) {
    output.textContent = resultText;
 }
 
+
+
+
+
+
+
 export function validatePersonData(personData: string | (string | number)[]) {
    let resultText: string | (string | number)[];
 
@@ -26,6 +32,9 @@ export function validatePersonData(personData: string | (string | number)[]) {
 
    return resultText;
 }
+
+
+
 
 export function outputErrorPersonData(resultText: string) {
    const output =
