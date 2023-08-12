@@ -21,10 +21,8 @@ export function validatePersonDataNotEmpty(person: Person) {
    }
 }
 
-export function validatePersonDataAgeType(typedData: (string | number)[]) {
-   typedData.forEach((data) => {
-      if (Number.isNaN(data) ) {
-         throw new Error("Invalid - Age input must be number!");
-      }
-   });
+export function validatePersonAgeType(number: number) {
+   if (isNaN(number) || typeof number !== "number") {
+      throw new Error("Invalid - Age input must be number!");
+   }
 }

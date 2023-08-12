@@ -4,7 +4,7 @@ import {
    validateStringNotEmpty,
    validateNumber,
    validatePersonDataNotEmpty,
-   validatePersonDataAgeType,
+   validatePersonAgeType
 } from "../src/utils/validation";
 
 describe("validateStringNotEmpty()", () => {
@@ -109,9 +109,9 @@ describe("validatePersonDataNotEmpty()", () => {
 describe('validatePersonDataAgeType()', () => {
    
    it('should throw an error if Age input is not number', () => {
-      const data = ['test','test', NaN, 'test'];
+      const age = NaN
       const validationResult = () => {
-         validatePersonDataAgeType(data);
+         validatePersonAgeType(age);
       };
 
       expect(validationResult).toThrow();

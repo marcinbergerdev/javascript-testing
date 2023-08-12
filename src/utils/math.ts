@@ -2,7 +2,6 @@ import { clearNumbers } from "./numbers";
 import { transformToSpecificTypeArrayOfData } from "./strings";
 import {
    validatePersonDataNotEmpty,
-   validatePersonDataAgeType,
 } from "./validation";
 import { Person } from "./parse";
 
@@ -32,7 +31,6 @@ export function calculateData(personData: Person) {
    try {
       validatePersonDataNotEmpty(personData);
       const typedPersonData = transformToSpecificTypeArrayOfData(personData);
-      validatePersonDataAgeType(typedPersonData);
       transformResult = typedPersonData;
       
    } catch (error: any) {
