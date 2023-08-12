@@ -107,9 +107,9 @@ describe("validatePersonDataNotEmpty()", () => {
 
 
 describe('validatePersonDataAgeType()', () => {
+   
    it('should throw an error if Age input is not number', () => {
       const data = ['test','test', NaN, 'test'];
-      
       const validationResult = () => {
          validatePersonDataAgeType(data);
       };
