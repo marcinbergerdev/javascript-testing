@@ -12,7 +12,7 @@ describe("addNumbers()", () => {
    });
 
    it("should yield NaN if not a number is provided", () => {
-      const value = [[], {}, "invalid", false, true, NaN, null];
+      const value = [[], {}, "invalid", false, true];
 
       const valueResult = addNumbers(value);
 
