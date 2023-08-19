@@ -3,7 +3,7 @@ export const CalcNumber = `
     <h2>Numbers Validation</h2>
   </header>
 
-  <form class="form" action="" id="formNumber">
+  <form class="form" id="formNumber">
     <div class="form__box">
     <label for="num1">First Number</label>
     <input type="text" id='num1' name='num1' />

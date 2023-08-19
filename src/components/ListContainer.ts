@@ -1,7 +1,10 @@
-import { CalcNumber } from "./calculatesNumber/CalcNumber.ts";
-import { ValidStrings } from "./calculatesNumber/ValidStrings.ts";
+import { CalcNumber } from "./layouts/CalcNumber.ts";
+import { ValidStrings } from "./layouts/ValidStrings.ts";
+import { ApiRequest } from "./layouts/ApiRequest.ts";
+
 import "../../scss/TestContainer.scss";
 import "../../scss/ValidString.scss"
+import "../../scss/ApiRequest.scss"
 
 export function renderListContainer() {
    const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -12,6 +15,9 @@ export function renderListContainer() {
     </li>
     <li class="test-content">
       ${ValidStrings}
+    </li>
+    <li class="test-content">
+      ${ApiRequest}
     </li>
   </ul>
   `;
