@@ -1,3 +1,5 @@
+import { Pets } from "../../types/Pets";
+
 import { Person } from "./parse";
 
 export function validateStringNotEmpty(value: string) {
@@ -24,5 +26,16 @@ export function validatePersonDataNotEmpty(person: Person) {
 export function validatePersonAgeType(number: number) {
    if (isNaN(number) || typeof number !== "number") {
       throw new Error("Invalid - Age input must be number!");
+   }
+}
+
+export function validateServerError(response: Response) {
+   if (!response.ok) {
+      throw new Error("Something goes wrong try later :(");
+   }
+}
+export function validateServerStatus(response: Response) {
+   if (response.status === 400) {
+      throw new Error("Sorry - server is down 404");
    }
 }

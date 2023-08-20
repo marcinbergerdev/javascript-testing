@@ -1,9 +1,11 @@
+import { Pets } from "./../../types/Pets";
+
 import { clearNumbers } from "./numbers";
 import { transformToSpecificTypeArrayOfData } from "./strings";
-import {
-   validatePersonDataNotEmpty,
-} from "./validation";
+import { validatePersonDataNotEmpty } from "./validation";
 import { Person } from "./parse";
+import { getPetsRequest, transformToArrayOfPets } from "./petsApi";
+import { validateServerError, validateServerStatus } from "./validation";
 
 export function addNumbers(numbers: any) {
    let sum = 0;
@@ -32,10 +34,28 @@ export function calculateData(personData: Person) {
       validatePersonDataNotEmpty(personData);
       const typedPersonData = transformToSpecificTypeArrayOfData(personData);
       transformResult = typedPersonData;
-      
    } catch (error: any) {
       transformResult = error.message;
    }
 
    return transformResult;
 }
+
+export async function calculatePetsImages() {
+   let transformedPets: string | Pets[] = [];
+
+   try {
+      const petResponse: Response = await getPetsRequest();
+      validateServerError(petResponse);
+      validateServerStatus(petResponse);
+      const transformPetsResponse: Pets[] = await transformToArrayOfPets(
+         petResponse
+      );
+      transformedPets = transformPetsResponse;
+   } catch (err: any) {
+      transformedPets = err.message;
+   }
+
+   return transformedPets;
+}
+

@@ -5,7 +5,7 @@ export const ApiRequest = `
 
   <div class="api-interaction">
     <h3 class="api-interaction__title">Images</h3>
-    <button class="api-interaction__showButton">show pictures</button>
+    <button id="show-pets" class="api-interaction__showButton">show pictures</button>
   </div>
 
   <section class="result-container">
@@ -24,21 +24,36 @@ export const ApiRequest = `
   </a>
 `;
 
-
+// https://api.thecatapi.com/v1/images/search?limit=10
 // <ul class="images-list">
-// <li class="image-element">
-//   <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-// </li>
-// <li class="image-element">
-//   <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-// </li>
-// <li class="image-element">
-//   <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-// </li>
-// <li class="image-element">
-//   <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-// </li>
-// <li class="image-element">
-//   <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-// </li>
-// </ul>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   <li class="image-element">
+//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
+//   </li>
+//   </ul>
