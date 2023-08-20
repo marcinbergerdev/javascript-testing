@@ -1,7 +1,7 @@
 import { renderListContainer } from "./components/ListContainer";
 import { extractNumberInputs ,extractStringInputs} from "./utils/parse.ts";
 import { calculateResult, calculateData} from "./utils/math.ts";
-import { outputNumberResult, outputPersonDataResult, validateResult, validatePersonData} from "./utils/output.ts";
+import { outputNumberResult, outputPersonDataResult, validateResult, validatePersonData, generateOutputTemplate} from "./utils/output.ts";
 import { calculatePetsImages } from "./utils/math.ts";
 renderListContainer();
 
@@ -30,14 +30,11 @@ const formStringResultHandler = (e: SubmitEvent) => {
 
 
 
-const imageResultHandler = async () => {
+const imagesResultHandler = async () => {
    
-   const petsResult = await calculatePetsImages();
+   const extractedData = await calculatePetsImages();
+   generateOutputTemplate(extractedData);
    
-  
-
-  
-
 }
 
 
@@ -45,7 +42,7 @@ const imageResultHandler = async () => {
 
 formNumber.addEventListener("submit", formNumberResultHandler);
 formString.addEventListener("submit", formStringResultHandler);
-showPetsHandler.addEventListener('click', imageResultHandler);
+showPetsHandler.addEventListener('click', imagesResultHandler);
 
 
 
