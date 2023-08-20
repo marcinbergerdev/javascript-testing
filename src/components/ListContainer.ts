@@ -3,8 +3,8 @@ import { ValidStrings } from "./layouts/ValidStrings.ts";
 import { ApiRequest } from "./layouts/ApiRequest.ts";
 
 import "../../scss/TestContainer.scss";
-import "../../scss/ValidString.scss"
-import "../../scss/ApiRequest.scss"
+import "../../scss/ValidString.scss";
+import "../../scss/ApiRequest.scss";
 
 export function renderListContainer() {
    const app = document.querySelector<HTMLDivElement>("#app")!;

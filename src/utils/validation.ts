@@ -1,5 +1,3 @@
-import { Pets } from "../../types/Pets";
-
 import { Person } from "./parse";
 
 export function validateStringNotEmpty(value: string) {

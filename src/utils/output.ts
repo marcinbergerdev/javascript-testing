@@ -1,4 +1,4 @@
-import { Pets } from './../../types/Pets';
+import { Pets } from "./../../types/Pets";
 
 export function validateResult(result: string) {
    let resultText = "";
@@ -69,25 +69,17 @@ export function outputPersonDataResult(
        `;
 }
 
-
-export function generateOutputTemplate(data: string | Pets[]){
-
-   if(typeof data === 'string' && typeof data !== 'object'){
+export function generateOutputTemplate(data: string | Pets[]) {
+   if (typeof data === "string" && typeof data !== "object") {
       createErrorMessage(data);
       return;
    }
-   
+
    createPetsList(data);
+}
 
-};
-
-
-function createPetsList(pets: Pets[]){
+function createPetsList(pets: Pets[]) {
    console.log(pets);
-   
 }
 
-
-function createErrorMessage(error: string){
-
-}
+function createErrorMessage(error: string) {}

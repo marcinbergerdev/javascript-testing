@@ -1,13 +1,20 @@
 import { renderListContainer } from "./components/ListContainer";
-import { extractNumberInputs ,extractStringInputs} from "./utils/parse.ts";
-import { calculateResult, calculateData} from "./utils/math.ts";
-import { outputNumberResult, outputPersonDataResult, validateResult, validatePersonData, generateOutputTemplate} from "./utils/output.ts";
+import { extractNumberInputs, extractStringInputs } from "./utils/parse.ts";
+import { calculateResult, calculateData } from "./utils/math.ts";
+import {
+   outputNumberResult,
+   outputPersonDataResult,
+   validateResult,
+   validatePersonData,
+   generateOutputTemplate,
+} from "./utils/output.ts";
 import { calculatePetsImages } from "./utils/math.ts";
 renderListContainer();
 
 const formNumber = document.querySelector<HTMLFormElement>("#formNumber")!;
 const formString = document.querySelector<HTMLFormElement>("#formString")!;
-const showPetsHandler = document.querySelector<HTMLButtonElement>('#show-pets')!;
+const showPetsHandler =
+   document.querySelector<HTMLButtonElement>("#show-pets")!;
 
 const formNumberResultHandler = (e: SubmitEvent) => {
    e.preventDefault();
@@ -18,7 +25,6 @@ const formNumberResultHandler = (e: SubmitEvent) => {
    outputNumberResult(resultText);
 };
 
-
 const formStringResultHandler = (e: SubmitEvent) => {
    e.preventDefault();
    const extractPersonValue = extractStringInputs(formString);
@@ -28,37 +34,11 @@ const formStringResultHandler = (e: SubmitEvent) => {
    outputPersonDataResult(personDataText);
 };
 
-
-
 const imagesResultHandler = async () => {
-   
    const extractedData = await calculatePetsImages();
    generateOutputTemplate(extractedData);
-   
-}
-
-
-
+};
 
 formNumber.addEventListener("submit", formNumberResultHandler);
 formString.addEventListener("submit", formStringResultHandler);
-showPetsHandler.addEventListener('click', imagesResultHandler);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+showPetsHandler.addEventListener("click", imagesResultHandler);

@@ -58,4 +58,3 @@ export async function calculatePetsImages() {
 
    return transformedPets;
 }
-
