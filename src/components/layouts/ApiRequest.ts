@@ -24,37 +24,3 @@ export const ApiRequest = `
   → check my code here ←
   </a>
 `;
-
-// https://api.thecatapi.com/v1/images/search?limit=10
-// <ul class="images-list">
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   <li class="image-element">
-//     <img class="image-element__img" src="/images/tests/numbers/test1.png" alt="random">
-//   </li>
-//   </ul>
