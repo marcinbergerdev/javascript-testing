@@ -1,53 +1,63 @@
-.api-interaction{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  grid-area: interaction;
-  gap: 3rem 0;
+.api-interaction {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+   grid-area: interaction;
+   gap: 3rem 0;
 
-  @media(width >= 1024px){
-    gap: 0;
-  }
-   
-  &__title{
-    font-size: 3rem;
-  }
+   @media (width >= 1024px) {
+      gap: 0;
+   }
 
-  &__showButton{  
-    margin-top: 5rem;
-    padding: 0.7rem 2rem;
+   &__title {
+      font-size: 3rem;
+   }
 
-    background-color: transparent;
-    border: 1px solid var(--text-dark);
-    border-radius: 1rem;
+   &__showButton {
+      margin-top: 5rem;
+      padding: 0.7rem 2rem;
 
-    @media (width >= 1024px) {
-       cursor: pointer;
-       font-weight: 600;
-       transition: 0.2s ease-in-out;
+      background-color: transparent;
+      border: 1px solid var(--text-dark);
+      border-radius: 1rem;
 
-       &:hover {
-          background-color: var(--text-dark);
-          color: var(--bg-color);
-          transition: 0.2s ease-in-out;
-       }
-    }
+      @media (width >= 1024px) {
+         cursor: pointer;
+         font-weight: 600;
+         transition: 0.2s ease-in-out;
 
-  }
+         &:hover {
+            background-color: var(--text-dark);
+            color: var(--bg-color);
+            transition: 0.2s ease-in-out;
+         }
+      }
+   }
 }
 
-.images-list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+.images-list {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 1rem;
 }
 
-.image-element{
-  
-  &__img{
-    width: 70px;
-    height: 70px;
-  }
+@keyframes imageAnimation {
+   0% {
+      scale: 0.5;
+      opacity: 0;
+   }
+   100% {
+      scale: 1;
+      opacity: 1;
+   }
+}
+
+.image-wrapper {
+   animation: imageAnimation 1s;
+   &__img {
+      width: 70px;
+      height: 70px;
+   }
 }

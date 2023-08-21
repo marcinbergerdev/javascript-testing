@@ -78,8 +78,35 @@ export function generateOutputTemplate(data: string | Pets[]) {
    createPetsList(data);
 }
 
-function createPetsList(pets: Pets[]) {
-   console.log(pets);
+function createErrorMessage(error: string) {
+   const apiResult = document.querySelector<HTMLElement>("#result-api")!;
+   apiResult.innerHTML = "";
+
+   const errorMessage = document.createElement("p");
+   errorMessage.textContent = error;
+   apiResult.appendChild(errorMessage);
 }
 
-function createErrorMessage(error: string) {}
+function createPetsList(pets: Pets[]) {
+   const apiResult = document.querySelector<HTMLElement>("#result-api")!;
+   apiResult.innerHTML = "";
+
+   const petsList: HTMLUListElement = document.createElement("ul");
+   petsList.classList.add("images-list");
+   apiResult.appendChild(petsList);
+
+   pets.forEach((pet) => {
+      const petElement: HTMLLIElement = document.createElement("li");
+      petsList.setAttribute("id", pet.id);
+      petElement.classList.add("image-wrapper");
+
+      const petImage: HTMLImageElement = document.createElement("img");
+      petImage.classList.add("image-wrapper__img");
+      petImage.setAttribute("loading", "lazy");
+      petImage.setAttribute("src", pet.url);
+      petImage.setAttribute("alt", "animal");
+
+      petElement.appendChild(petImage);
+      petsList.appendChild(petElement);
+   });
+}

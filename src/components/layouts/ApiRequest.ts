@@ -8,8 +8,9 @@ export const ApiRequest = `
     <button id="show-pets" class="api-interaction__showButton">show pictures</button>
   </div>
 
-  <section class="result-container">
-  
+  <section id="result-api" class="result-container"> 
+    <h4>Result</h4>
+    <p>...</p>
   </section>
 
   <section class="test-images">
