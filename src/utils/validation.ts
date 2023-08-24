@@ -27,6 +27,9 @@ export function validatePersonAgeType(number: number) {
    }
 }
 
+
+
+
 export function validateServerError(response: Response) {
    if (!response.ok) {
       throw new Error("Something goes wrong try later :(");

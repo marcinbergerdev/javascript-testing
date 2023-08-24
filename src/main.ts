@@ -34,11 +34,11 @@ const formStringResultHandler = (e: SubmitEvent) => {
    outputPersonDataResult(personDataText);
 };
 
-const imagesResultHandler = async () => {
+const imagesRenderHandler = async () => {
    const extractedData = await calculatePetsImages();
    generateOutputTemplate(extractedData);
 };
 
 formNumber.addEventListener("submit", formNumberResultHandler);
 formString.addEventListener("submit", formStringResultHandler);
-showPetsHandler.addEventListener("click", imagesResultHandler);
+showPetsHandler.addEventListener("click", imagesRenderHandler);

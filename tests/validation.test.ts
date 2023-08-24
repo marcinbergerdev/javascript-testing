@@ -1,10 +1,12 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 
 import {
    validateStringNotEmpty,
    validateNumber,
    validatePersonDataNotEmpty,
-   validatePersonAgeType
+   validatePersonAgeType,
+   validateServerError,
+   validateServerStatus,
 } from "../src/utils/validation";
 
 describe("validateStringNotEmpty()", () => {
@@ -91,19 +93,24 @@ describe("validatePersonDataNotEmpty()", () => {
    });
 
    it("should pass if all input are string type", () => {
-      const data = { firstValue: "test", secondValue: "test", age: "12", profession: "test",};
+      const data = {
+         firstValue: "test",
+         secondValue: "test",
+         age: "12",
+         profession: "test",
+      };
 
       const personData = Object.keys(data);
-      const isAllInputsString = personData.every((data) => typeof data === "string");
+      const isAllInputsString = personData.every(
+         (data) => typeof data === "string"
+      );
 
       expect(isAllInputsString).toBe(true);
    });
 });
 
-
-describe('validatePersonDataAgeType()', () => {
-   
-   it('should throw an error if Age input is not number', () => {
+describe("validatePersonDataAgeType()", () => {
+   it("should throw an error if Age input is not number", () => {
       const age = NaN;
       const validationResult = () => {
          validatePersonAgeType(age);
@@ -111,6 +118,16 @@ describe('validatePersonDataAgeType()', () => {
 
       expect(validationResult).toThrow();
    });
+});
 
-   
+const apiLink: string = "https://api.thecatapi.com/v1/imasearch?limit=10"; // false api link
+
+describe("validateServerError()", () => {
+   it("should throw a error if response server status is false provided", async () => {
+      try {
+         await fetch(apiLink);
+      } catch (err) {
+         expect(err).toThrow;
+      }
+   });
 });

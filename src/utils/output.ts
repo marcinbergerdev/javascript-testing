@@ -95,10 +95,11 @@ function createPetsList(pets: Pets[]) {
    petsList.classList.add("images-list");
    apiResult.appendChild(petsList);
 
-   pets.forEach((pet) => {
+   pets.forEach((pet, id) => {
       const petElement: HTMLLIElement = document.createElement("li");
       petsList.setAttribute("id", pet.id);
       petElement.classList.add("image-wrapper");
+      petElement.classList.add(`image${id}`);
 
       const petImage: HTMLImageElement = document.createElement("img");
       petImage.classList.add("image-wrapper__img");

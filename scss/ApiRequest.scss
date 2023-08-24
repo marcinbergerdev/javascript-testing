@@ -45,7 +45,11 @@
 
 @keyframes imageAnimation {
    0% {
-      scale: 0.5;
+      scale: 0;
+      opacity: 0;
+   }
+   75% {
+      scale: 0;
       opacity: 0;
    }
    100% {
@@ -54,8 +58,15 @@
    }
 }
 
+$pictures: 10;
+
+@for $i from 0 through $pictures {
+   .image#{$i} {
+      animation: imageAnimation (0.2s * $i + 0.5) ease-in-out;
+   }
+}
+
 .image-wrapper {
-   animation: imageAnimation 1s;
    &__img {
       width: 70px;
       height: 70px;
