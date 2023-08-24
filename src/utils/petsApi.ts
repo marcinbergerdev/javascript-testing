@@ -1,6 +1,4 @@
-const apiLink: string = "https://api.thecatapi.com/v1/images/search?limit=10";
-
-export async function getPetsRequest() {
+export async function getPetsRequest(apiLink: string) {
    const response = await fetch(apiLink);
    return response;
 }

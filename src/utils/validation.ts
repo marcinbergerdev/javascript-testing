@@ -32,11 +32,12 @@ export function validatePersonAgeType(number: number) {
 
 export function validateServerError(response: Response) {
    if (!response.ok) {
-      throw new Error("Something goes wrong try later :(");
+      throw new Error("Something goes wrong try later");
    }
 }
 export function validateServerStatus(response: Response) {
-   if (response.status === 400) {
-      throw new Error("Sorry - server is down 404");
+   console.log(response);
+   if (response.status === 404) {
+      throw new Error("Sorry - server is down :(");
    }
 }

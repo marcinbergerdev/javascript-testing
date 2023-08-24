@@ -8,6 +8,15 @@ import {
    validateServerError,
    validateServerStatus,
 } from "../src/utils/validation";
+import { getPetsRequest } from "../src/utils/petsApi";
+
+let correctApiLink: string;
+let wrongApiLink: string;
+
+beforeAll(() => {
+   correctApiLink = "https://api.thecatapi.com/v1/images/search?limit=10"; // correct link api to get response
+   wrongApiLink = "https://api.thecatapi.com/v1/test"; // wrong link api to get error
+});
 
 describe("validateStringNotEmpty()", () => {
    it("should throw an error if empty string is provided", () => {
@@ -120,14 +129,66 @@ describe("validatePersonDataAgeType()", () => {
    });
 });
 
-const apiLink: string = "https://api.thecatapi.com/v1/imasearch?limit=10"; // false api link
-
 describe("validateServerError()", () => {
    it("should throw a error if response server status is false provided", async () => {
-      try {
-         await fetch(apiLink);
-      } catch (err) {
-         expect(err).toThrow;
-      }
+      const petsApiRequest: Response = await getPetsRequest(wrongApiLink);
+
+      const validationResult = () => {
+         validateServerError(petsApiRequest);
+      };
+
+      expect(validationResult).toThrow();
+   });
+
+   it("should not throw a error if correct api link is provided", async () => {
+      const petsApiRequest: Response = await getPetsRequest(correctApiLink);
+
+      const validationResult = () => {
+         validateServerError(petsApiRequest);
+      };
+
+      expect(validationResult).not.toThrow();
+   });
+
+   it("should throw text 'Something goes wrong try later' if wrong api link is provided", async () => {
+      const petsApiRequest: Response = await getPetsRequest(wrongApiLink);
+
+      const validationResult = () => {
+         validateServerError(petsApiRequest);
+      };
+
+      expect(validationResult).toThrowError("Something goes wrong try later");
+   });
+});
+
+describe("validateServerStatus()", () => {
+   it("should throw a error if response server status is 404", async () => {
+      const petsApiRequest: Response = await getPetsRequest(wrongApiLink);
+
+      const validationResult = () => {
+         validateServerStatus(petsApiRequest);
+      };
+
+      expect(validationResult).toThrow();
+   });
+
+   it("should not throw a error if correct api link is provided", async () => {
+      const petsApiRequest: Response = await getPetsRequest(correctApiLink);
+
+      const validationResult = () => {
+         validateServerStatus(petsApiRequest);
+      };
+
+      expect(validationResult).not.toThrow();
+   });
+
+   it("should throw text 'Sorry - server is down :(' if wrong api link is provided", async () => {
+      const petsApiRequest: Response = await getPetsRequest(wrongApiLink);
+
+      const validationResult = () => {
+         validateServerStatus(petsApiRequest);
+      };
+
+      expect(validationResult).toThrowError("Sorry - server is down :(");
    });
 });

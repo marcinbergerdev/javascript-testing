@@ -41,11 +41,13 @@ export function calculateData(personData: Person) {
    return transformResult;
 }
 
+const apiLink: string = "https://api.thecatapi.com/v1/images/search?limit=10";
+
 export async function calculatePetsImages() {
    let transformedPets: string | Pets[] = [];
 
    try {
-      const petResponse: Response = await getPetsRequest();
+      const petResponse: Response = await getPetsRequest(apiLink);
       validateServerError(petResponse);
       validateServerStatus(petResponse);
       const transformPetsResponse: Pets[] = await transformToArrayOfPets(
