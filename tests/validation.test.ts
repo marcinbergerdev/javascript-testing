@@ -8,7 +8,7 @@ import {
    validateServerError,
    validateServerStatus,
 } from "../src/utils/validation";
-import { getPetsRequest } from "../src/utils/petsApi";
+import { getPetsRequest } from "../src/utils/requestApi";
 
 let correctApiLink: string;
 let wrongApiLink: string;
@@ -130,7 +130,7 @@ describe("validatePersonDataAgeType()", () => {
 });
 
 describe("validateServerError()", () => {
-   it("should throw a error if response server status is false provided", async () => {
+   it("should throw a error if wrong api link is provided", async () => {
       const petsApiRequest: Response = await getPetsRequest(wrongApiLink);
 
       const validationResult = () => {

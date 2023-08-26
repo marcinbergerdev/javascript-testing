@@ -4,7 +4,7 @@ import { clearNumbers } from "./numbers";
 import { transformToSpecificTypeArrayOfData } from "./strings";
 import { validatePersonDataNotEmpty } from "./validation";
 import { Person } from "./parse";
-import { getPetsRequest, transformToArrayOfPets } from "./petsApi";
+import { getPetsRequest, transformToArrayOfPets } from "./requestApi";
 import { validateServerError, validateServerStatus } from "./validation";
 
 export function addNumbers(numbers: any) {
@@ -45,18 +45,16 @@ const apiLink: string = "https://api.thecatapi.com/v1/images/search?limit=10";
 
 export async function calculatePetsImages() {
    let transformedPets: string | Pets[] = [];
-
+   
    try {
       const petResponse: Response = await getPetsRequest(apiLink);
       validateServerError(petResponse);
       validateServerStatus(petResponse);
-      const transformPetsResponse: Pets[] = await transformToArrayOfPets(
-         petResponse
-      );
-      transformedPets = transformPetsResponse;
-   } catch (err: any) {
-      transformedPets = err.message;
-   }
-
+      const transformPetsResponse: Pets[] = await transformToArrayOfPets(petResponse);
+         transformedPets = transformPetsResponse;
+      } catch (err: any) {
+         transformedPets = err.message;
+      }
+      
    return transformedPets;
 }

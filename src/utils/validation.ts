@@ -36,7 +36,6 @@ export function validateServerError(response: Response) {
    }
 }
 export function validateServerStatus(response: Response) {
-   console.log(response);
    if (response.status === 404) {
       throw new Error("Sorry - server is down :(");
    }

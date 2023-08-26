@@ -11,7 +11,6 @@ export function transformToSpecificTypeArrayOfData(personData: Person) {
          transformData.push(age);
          continue;
       }
-
       transformData.push(personData[data]);
    }
 

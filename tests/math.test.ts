@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { addNumbers } from "../src/utils/math";
+import { calculatePetsImages } from '../src/utils/math'
 
 describe("addNumbers()", () => {
 
@@ -32,5 +33,14 @@ describe("addNumbers()", () => {
       );
 
       expect(result).toBe(sum);
+   });
+});
+
+
+describe('calculatePetsImages()', () => {
+   it('should return array of pets if api link is correct', () => {
+      const arrayOfPets = calculatePetsImages();
+      
+      expect(arrayOfPets).toBeTypeOf('object');
    });
 });
