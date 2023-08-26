@@ -3,6 +3,7 @@ import {
    getPetsRequest,
    transformToArrayOfPets,
 } from "../src/utils/requestApi";
+import { Pets } from "../types/Pets";
 
 let correctApiLink: string;
 let wrongApiLink: string;
@@ -35,8 +36,12 @@ describe("transformToArrayOfPets()", async () => {
 
    it("should return string if pets contain valid data", async () => {
       const response = await getPetsRequest(correctApiLink);
-      const [pet] = await transformToArrayOfPets(response);
-      expect(pet.id).toBeTypeOf("string");
+
+      const pets: Pets[] = await transformToArrayOfPets(response);
+
+      pets.forEach((pet) => {
+         expect(pet).toHaveProperty("id");
+      });
    });
 
    it("should throw an error if wrong api link is provided", async () => {

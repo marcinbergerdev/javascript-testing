@@ -34,8 +34,9 @@ const formStringResultHandler = (e: SubmitEvent) => {
    outputPersonDataResult(personDataText);
 };
 
+const apiLink: string = "https://api.thecatapi.com/v1/images/search?limit=10";
 const imagesRenderHandler = async () => {
-   const extractedData = await calculatePetsImages();
+   const extractedData = await calculatePetsImages(apiLink);
    generateOutputTemplate(extractedData);
 };
 
