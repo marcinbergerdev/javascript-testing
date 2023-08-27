@@ -14,10 +14,10 @@ export const ApiRequest = `
   </section>
 
   <section class="test-images">
-    <img class="test-images__img" src="/images/tests/numbers/test1.png" alt="example-test" />
-    <img class="test-images__img" src="/images/tests/numbers/test2.png" alt="example-test" />
-    <img class="test-images__img" src="/images/tests/numbers/test3.png" alt="example-test" />
-    <img class="test-images__img" src="/images/tests/numbers/test4.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/apis/test1.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/apis/test2.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/apis/test3.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/apis/test4.png" alt="example-test" />
   </section>
 
   <a class="test-link" href="https://github.com/marcinbergerdev/javascript-testing/tree/main/tests">
