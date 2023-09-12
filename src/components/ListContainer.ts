@@ -1,10 +1,12 @@
 import { CalcNumber } from "./layouts/CalcNumber.ts";
 import { ValidStrings } from "./layouts/ValidStrings.ts";
 import { ApiRequest } from "./layouts/ApiRequest.ts";
+import { ShopCatalog } from './layouts/ShopCatalog.ts'
 
-import "../../scss/TestContainer.scss";
-import "../../scss/ValidString.scss";
-import "../../scss/ApiRequest.scss";
+import "../../scss/testContainer.scss";
+import "../../scss/validString.scss";
+import "../../scss/apiRequest.scss";
+import "../../scss/shopCatalog.scss"
 
 export function renderListContainer() {
    const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -18,6 +20,9 @@ export function renderListContainer() {
     </li>
     <li class="test-content">
       ${ApiRequest}
+    </li>
+    <li class="test-content">
+      ${ShopCatalog}
     </li>
   </ul>
   `;
