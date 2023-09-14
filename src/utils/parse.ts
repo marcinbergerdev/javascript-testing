@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid';
+
 export function extractNumbers(form: any) {
    const inputNum1: FormDataEntryValue = form.get("num1")!;
    const inputNum2: FormDataEntryValue = form.get("num2")!;
@@ -34,11 +36,13 @@ export function extractStringInputs(form: HTMLFormElement) {
 }
 
 export function extractProductData(form: HTMLFormElement) {
+   let myuuid = uuidv4();
    const formData = new FormData(form);
 
+   const id = myuuid;
    const name = formData.get("name");
    const price = formData.get("price");
    const available = formData.get("available");
 
-   return [name, price, available];
+   return [id, name, price, available];
 }

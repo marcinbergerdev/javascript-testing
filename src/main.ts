@@ -1,6 +1,6 @@
 import { renderListContainer } from "./components/ListContainer";
 import { extractNumberInputs, extractStringInputs ,extractProductData} from "./utils/parse.ts";
-import { calculateResult, calculateData } from "./utils/math.ts";
+import { calculateResult, calculateData, createProduct} from "./utils/math.ts";
 import {
    outputNumberResult,
    outputPersonDataResult,
@@ -9,6 +9,7 @@ import {
    generateOutputTemplate,
 } from "./utils/output.ts";
 import { calculatePetsImages } from "./utils/math.ts";
+import { Items } from "../types/CatalogItems.ts";
 renderListContainer();
 
 const formNumber = document.querySelector<HTMLFormElement>("#formNumber")!;
@@ -46,7 +47,10 @@ const imagesRenderHandler = async () => {
 const formShopCatalogHandler = (e: Event) => {
    e.preventDefault();
 
-   const extractedProductData = extractProductData(formShopCatalog);
+   const extractedProductData: Items = extractProductData(formShopCatalog);
+   const createdShopProduct = createProduct(extractProductData);
+
+   console.log(extractedProductData);
 
 
 

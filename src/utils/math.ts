@@ -1,3 +1,4 @@
+import { Items } from './../../types/CatalogItems';
 import { Pets } from "./../../types/Pets";
 
 import { clearNumbers } from "./numbers";
@@ -55,4 +56,14 @@ export async function calculatePetsImages(apiLink: string) {
       }
       
    return transformedPets;
+}
+
+
+
+export async function createProduct(productData: Items[]){
+   try{
+
+   }catch(err: any){
+
+   };
 }
