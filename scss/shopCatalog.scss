@@ -1,48 +1,47 @@
-#shopCatalog{
-  border: 1px solid var(--text-dark);
-  margin-left: 2rem;
-  padding: 1rem 0rem;
+#shopCatalog {
+   border: 1px solid var(--text-dark);
+   margin: 0 2rem;
+   padding: 1.5rem 0rem;
 }
 
-.availability-container{
-  margin-top: 4rem;
-  text-align: center;
+.availability-container {
+   margin-top: 4rem;
+   text-align: center;
 
-  label{
-    font-size: 2rem;
-  }
+   label {
+      font-size: 2rem;
+   }
 }
 
-
-.user-choice-availability{
- display: flex;
- justify-content: center;
- gap: 0 2rem;
- margin-top: 2rem;
+.user-choice-availability {
+   display: flex;
+   justify-content: center;
+   gap: 0 2rem;
+   margin-top: 2rem;
 }
 
-.choice-box{
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem 0;
-  &__title{
-    font-size: 1.3rem;
-  }
+.choice-box {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem 0;
+   label {
+      font-size: 1.5rem;
+   }
 
-  input{
-    @media(width >= 1024px){
-      cursor: pointer;
-    }
-  }
+   input {
+      @media (width >= 1024px) {
+         cursor: pointer;
+      }
+   }
 }
 
-.error-message{
-  display: none;
-  padding-top: 3rem;
-  color: #e64545;
+.error-message {
+   display: none;
+   padding-top: 3rem;
+   color: #e64545;
 }
 
-.availability-images{
-  align-items: flex-start;
-  margin-top: 4rem;
+.availability-images {
+   align-items: flex-start;
+   margin-top: 4rem;
 }

@@ -1,5 +1,5 @@
 import { renderListContainer } from "./components/ListContainer";
-import { extractNumberInputs, extractStringInputs } from "./utils/parse.ts";
+import { extractNumberInputs, extractStringInputs ,extractProductData} from "./utils/parse.ts";
 import { calculateResult, calculateData } from "./utils/math.ts";
 import {
    outputNumberResult,
@@ -16,7 +16,9 @@ const formString = document.querySelector<HTMLFormElement>("#formString")!;
 const showPetsHandler =
    document.querySelector<HTMLButtonElement>("#show-pets")!;
 
-const formNumberResultHandler = (e: SubmitEvent) => {
+const formShopCatalog = document.querySelector<HTMLFormElement>('#shopCatalog')!;
+
+const formNumberResultHandler = (e: Event) => {
    e.preventDefault();
    const extractNumberValue = extractNumberInputs(formNumber);
 
@@ -25,7 +27,7 @@ const formNumberResultHandler = (e: SubmitEvent) => {
    outputNumberResult(resultText);
 };
 
-const formStringResultHandler = (e: SubmitEvent) => {
+const formStringResultHandler = (e: Event) => {
    e.preventDefault();
    const extractPersonValue = extractStringInputs(formString);
 
@@ -40,6 +42,18 @@ const imagesRenderHandler = async () => {
    generateOutputTemplate(extractedData);
 };
 
+
+const formShopCatalogHandler = (e: Event) => {
+   e.preventDefault();
+
+   const extractedProductData = extractProductData(formShopCatalog);
+
+
+
+}
+ 
+
 formNumber.addEventListener("submit", formNumberResultHandler);
 formString.addEventListener("submit", formStringResultHandler);
 showPetsHandler.addEventListener("click", imagesRenderHandler);
+formShopCatalog.addEventListener('submit',formShopCatalogHandler);

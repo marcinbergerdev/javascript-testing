@@ -10,7 +10,7 @@ export const ShopCatalog = `
     </div>
 
     <div class="form__box">
-      <label  for='price'>Product Price</label>
+      <label for='price'>Product Price</label>
       <input type="number" id='prise' name='price'/>
     </div>
 
@@ -19,13 +19,13 @@ export const ShopCatalog = `
 
       <div class="user-choice-availability">
         <div class="choice-box">
-          <h3 class='choice-box__title'>yes</h3>
-          <input type="radio" id='is' name='available'/>
+          <label for="availChoice1">yes</label>
+          <input type="radio" id='availChoice1' name='available' value="true"/>
         </div>
 
         <div class="choice-box">
-          <h3 class='choice-box__title'>no</h3>
-          <input type="radio" id='not' name='available'/>
+          <label for='availChoice2'>no</label>
+          <input type="radio" id='availChoice2' name='available' value="false"/>
         </div>
         </div>
         

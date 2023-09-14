@@ -12,13 +12,12 @@ export function extractNumberInputs(form: HTMLFormElement) {
    return numberInputs;
 }
 
-
 export interface Person {
    [key: string]: string;
 }
 
 export function extractString(form: FormData) {
-    const person = {
+   const person = {
       firstName: String(form.get("text1")),
       secondName: String(form.get("text2")),
       age: String(form.get("num3")),
@@ -32,4 +31,14 @@ export function extractStringInputs(form: HTMLFormElement) {
    const stringInput = extractString(formData);
 
    return stringInput;
+}
+
+export function extractProductData(form: HTMLFormElement) {
+   const formData = new FormData(form);
+
+   const name = formData.get("name");
+   const price = formData.get("price");
+   const available = formData.get("available");
+
+   return [name, price, available];
 }
