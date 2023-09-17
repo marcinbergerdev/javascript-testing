@@ -46,3 +46,11 @@ export function validateEmptyInputs(productData: Product) {
       }
    }
 }
+
+export function validateMaxAmount(products: Product[]) {
+   if (!!products && products.length >= 10) {
+      throw new Error(
+         "your list of product is full, please delete some products"
+      );
+   }
+}

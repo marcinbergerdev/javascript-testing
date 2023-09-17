@@ -47,13 +47,13 @@ const imagesRenderHandler = async () => {
 };
 
 
-const formShopCatalogHandler = (e: Event) => {
+const formShopCatalogHandler = async (e: Event) => {
    e.preventDefault();
 
    const extractedProductData = extractProductData(formShopCatalog);
-   const createdShopProduct = createProduct(extractedProductData);
+   const createdShopProduct = await createProduct(extractedProductData);
 
-
+   console.log(createdShopProduct);
 
 
 

@@ -8,6 +8,7 @@ import {
    validateServerError,
    validateServerStatus,
    validateEmptyInputs,
+   validateMaxAmount,
 } from "./validation";
 import { Person } from "./parse";
 import { getPetsRequest, transformToArrayOfPets, saveProductData} from "./requestApi";
@@ -71,13 +72,19 @@ export function setProductId(productData: Product) {
    return { id, ...productData };
 }
 
-export async function createProduct(productData: Product) {
+export function createProduct(productData: Product) {
+   let response;
+
    try {
       validateEmptyInputs(productData);
       const product = setProductId(productData);
-      const productRespone = await saveProductData(product);
+      const productResponse = saveProductData(product);
+      validateMaxAmount(productResponse);
+      response = productResponse;
       
    } catch (err: any) {
-      console.log(err.message);
+      response = err.message;
    }
+
+   return response;
 }
