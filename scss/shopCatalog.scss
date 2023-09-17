@@ -45,3 +45,93 @@
    align-items: flex-start;
    margin-top: 4rem;
 }
+
+.product-list {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 1rem;
+   height: 350px;
+   overflow: auto;
+}
+
+.product-element {
+   display: grid;
+   grid-template-areas:
+      "title delete"
+      "price price"
+      "status checkButton";
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   align-items: center;
+   gap: 2rem 1rem;
+   height: 150px;
+   padding: 1rem;
+   font-size: 1rem;
+   border: 1px solid var(--text-dark);
+
+   &__title {
+      font-size: 2em;
+      grid-area: title;
+   }
+
+   &__delete {
+      grid-area: delete;
+      justify-self: flex-end;
+      padding: 0.5rem 1rem;
+      font-size: 1.5em;
+      background-color: #8d2525;
+      border-radius: 0.5rem;
+      transition: 0.2s ease-in-out;
+
+      @media (width >= 1024px) {
+         &:hover {
+            cursor: pointer;
+            background-color: #b12f2f;
+            transition: 0.2s ease-in-out;
+         }
+      }
+   }
+
+   &__price {
+      font-size: 2em;
+      grid-area: price;
+   }
+
+   &__status {
+      display: none;
+      font-size: 1.4em;
+      grid-area: status;
+   }
+
+   &__checkAvailableHandler {
+      grid-area: checkButton;
+      padding: 0.5rem;
+      font-size: 1.4em;
+      color: var(--black);
+      background-color: var(--text-dark);
+      border-radius: 0.5rem;
+      transition: 0.2s ease-in-out;
+
+      @media (width >= 1024px) {
+         &:hover {
+            cursor: pointer;
+            background-color: #7e7d7d;
+            transition: 0.2s ease-in-out;
+         }
+      }
+   }
+}
+
+.available,
+.unavailable {
+   display: block;
+}
+
+.available {
+   color: #1eb343;
+}
+
+.unavailable {
+   color: #dd3b1e;
+}

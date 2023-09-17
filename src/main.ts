@@ -25,7 +25,6 @@ const formShopCatalog = document.querySelector<HTMLFormElement>('#shopCatalog')!
 const formNumberResultHandler = (e: Event) => {
    e.preventDefault();
    const extractNumberValue = extractNumberInputs(formNumber);
-
    const result = calculateResult(extractNumberValue);
    const resultText = validateResult(result);
    outputNumberResult(resultText);
@@ -34,7 +33,6 @@ const formNumberResultHandler = (e: Event) => {
 const formStringResultHandler = (e: Event) => {
    e.preventDefault();
    const extractPersonValue = extractStringInputs(formString);
-
    const personData = calculateData(extractPersonValue);
    const personDataText = validatePersonData(personData);
    outputPersonDataResult(personDataText);
@@ -52,8 +50,7 @@ const formShopCatalogHandler = async (e: Event) => {
 
    const extractedProductData = extractProductData(formShopCatalog);
    const createdShopProduct = await createProduct(extractedProductData);
-
-   console.log(createdShopProduct);
+   // createProductList();
 
 
 
