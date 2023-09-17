@@ -2,5 +2,9 @@ export interface Items {
   id: number,
   name: string,
   price: number,
-  isAvailable: boolean
+  isAvailable: string,
+}
+
+export interface Product{
+  [key: string]: string
 }

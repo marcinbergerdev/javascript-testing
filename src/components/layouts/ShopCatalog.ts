@@ -20,7 +20,7 @@ export const ShopCatalog = `
       <div class="user-choice-availability">
         <div class="choice-box">
           <label for="availChoice1">yes</label>
-          <input type="radio" id='availChoice1' name='available' value="true"/>
+          <input type="radio" id='availChoice1' name='available' value="true" checked/>
         </div>
 
         <div class="choice-box">

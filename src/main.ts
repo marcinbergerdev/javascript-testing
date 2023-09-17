@@ -10,7 +10,10 @@ import {
 } from "./utils/output.ts";
 import { calculatePetsImages } from "./utils/math.ts";
 import { Items } from "../types/CatalogItems.ts";
+
 renderListContainer();
+
+
 
 const formNumber = document.querySelector<HTMLFormElement>("#formNumber")!;
 const formString = document.querySelector<HTMLFormElement>("#formString")!;
@@ -47,10 +50,10 @@ const imagesRenderHandler = async () => {
 const formShopCatalogHandler = (e: Event) => {
    e.preventDefault();
 
-   const extractedProductData: Items = extractProductData(formShopCatalog);
-   const createdShopProduct = createProduct(extractProductData);
+   const extractedProductData = extractProductData(formShopCatalog);
+   const createdShopProduct = createProduct(extractedProductData);
 
-   console.log(extractedProductData);
+
 
 
 

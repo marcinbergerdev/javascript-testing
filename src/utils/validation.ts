@@ -1,3 +1,4 @@
+import { Product } from "../../types/CatalogItems";
 import { Person } from "./parse";
 
 export function validateStringNotEmpty(value: string) {
@@ -27,9 +28,6 @@ export function validatePersonAgeType(number: number) {
    }
 }
 
-
-
-
 export function validateServerError(response: Response) {
    if (!response.ok) {
       throw new Error("Something goes wrong try later");
@@ -38,5 +36,13 @@ export function validateServerError(response: Response) {
 export function validateServerStatus(response: Response) {
    if (response.status === 404) {
       throw new Error("Sorry - server is down :(");
+   }
+}
+
+export function validateEmptyInputs(productData: Product) {
+   for (const product in productData) {
+      if (productData[product].trim().length === 0) {
+         throw new Error("Invalid all inputs!");
+      }
    }
 }

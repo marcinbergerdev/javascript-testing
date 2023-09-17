@@ -1,4 +1,4 @@
-import {v4 as uuidv4} from 'uuid';
+import { Product } from "../../types/CatalogItems";
 
 export function extractNumbers(form: any) {
    const inputNum1: FormDataEntryValue = form.get("num1")!;
@@ -20,12 +20,12 @@ export interface Person {
 
 export function extractString(form: FormData) {
    const person = {
-      firstName: String(form.get("text1")),
-      secondName: String(form.get("text2")),
-      age: String(form.get("num3")),
-      profession: String(form.get("text4")),
+      firstName: form.get("text1"),
+      secondName: form.get("text2"),
+      age: form.get("num3"),
+      profession: form.get("text4"),
    };
-   return person;
+   return person as Person;
 }
 
 export function extractStringInputs(form: HTMLFormElement) {
@@ -36,13 +36,13 @@ export function extractStringInputs(form: HTMLFormElement) {
 }
 
 export function extractProductData(form: HTMLFormElement) {
-   let myuuid = uuidv4();
    const formData = new FormData(form);
 
-   const id = myuuid;
-   const name = formData.get("name");
-   const price = formData.get("price");
-   const available = formData.get("available");
+   const product = {
+      name: formData.get("name")!,
+      price: formData.get("price")!,
+      available: formData.get("available")!,
+   };
 
-   return [id, name, price, available];
+   return product as Product;
 }
