@@ -201,6 +201,11 @@ export const createProductList = (products: Product[]) => {
       const checkStatusButton = document.createElement("button");
       checkStatusButton.classList.add("product-element__checkAvailableButton");
       checkStatusButton.textContent = "check availability";
+      checkStatusButton.addEventListener("click", () => {
+         product.available === "true"
+            ? productStatus.classList.add("available")
+            : productStatus.classList.add("unavailable");
+      });
 
       productElement.append(
          productTitle,
