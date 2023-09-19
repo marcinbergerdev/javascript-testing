@@ -7,14 +7,12 @@ import {
    validateResult,
    validatePersonData,
    generateOutputTemplate,
+   showProductListHandler,
 } from "./utils/output.ts";
 import { calculatePetsImages } from "./utils/math.ts";
 import { createProductList } from './utils/output.ts' 
 
-
 renderListContainer();
-
-
 
 const formNumber = document.querySelector<HTMLFormElement>("#formNumber")!;
 const formString = document.querySelector<HTMLFormElement>("#formString")!;
@@ -22,6 +20,7 @@ const showPetsHandler =
    document.querySelector<HTMLButtonElement>("#show-pets")!;
 
 const formShopCatalog = document.querySelector<HTMLFormElement>('#shopCatalog')!;
+const showButton = document.querySelector<HTMLButtonElement>('.show-product-list')!;
 
 const formNumberResultHandler = (e: Event) => {
    e.preventDefault();
@@ -62,3 +61,4 @@ formNumber.addEventListener("submit", formNumberResultHandler);
 formString.addEventListener("submit", formStringResultHandler);
 showPetsHandler.addEventListener("click", imagesRenderHandler);
 formShopCatalog.addEventListener('submit',formShopCatalogHandler);
+showButton.addEventListener('click', showProductListHandler);

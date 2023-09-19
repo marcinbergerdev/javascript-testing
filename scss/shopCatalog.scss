@@ -35,6 +35,11 @@
    }
 }
 
+.show-product-list {
+   width: min(15rem, 100%);
+   margin-bottom: 3rem;
+}
+
 .error-message {
    display: none;
    padding-top: 3rem;
@@ -51,7 +56,7 @@
    flex-wrap: wrap;
    justify-content: center;
    gap: 1rem;
-   height: 350px;
+   height: 43rem;
    overflow: auto;
 }
 
@@ -79,10 +84,11 @@
       "title delete"
       "price price"
       "status checkButton";
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 2fr 1fr;
    grid-template-rows: 1fr 1fr;
    align-items: center;
    gap: 2rem 1rem;
+   width: 30rem;
    height: 150px;
    padding: 1rem;
    font-size: 1rem;
@@ -90,7 +96,11 @@
 
    &__title {
       font-size: 2em;
+      text-align: start;
       grid-area: title;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
    }
 
    &__delete {

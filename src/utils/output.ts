@@ -113,6 +113,16 @@ function createPetsList(pets: Pets[]) {
    });
 }
 
+export const showProductListHandler = () => {
+   const products: Product[] = JSON.parse(
+      localStorage.getItem("products") as string
+   );
+
+   const emptyListMessage = "your list of product is empty";
+
+   createProductList(products || emptyListMessage);
+};
+
 const createMessageIfProductListIsFull = (message: string) => {
    const productContainer =
       document.querySelector<HTMLElement>(".product-container")!;
@@ -129,12 +139,7 @@ const createMessageIfProductListIsFull = (message: string) => {
    const showProductList = document.createElement("button");
    showProductList.classList.add("showProducts");
    showProductList.textContent = "show products";
-   showProductList.addEventListener("click", () => {
-      const products: Product[] = JSON.parse(
-         localStorage.getItem("products") as string
-      );
-      createProductList(products);
-   });
+   showProductList.addEventListener("click", showProductListHandler);
 
    productContainer.append(resultTitle, resultMessage, showProductList);
 };
@@ -145,7 +150,8 @@ export const createProductList = (products: Product[]) => {
       return;
    }
 
-   const productContainer = document.querySelector<HTMLElement>(".product-container")!;
+   const productContainer =
+      document.querySelector<HTMLElement>(".product-container")!;
    productContainer.innerHTML = "";
 
    const productList = document.createElement("ul");
@@ -162,11 +168,25 @@ export const createProductList = (products: Product[]) => {
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("product-element__delete");
       deleteButton.textContent = "X";
-      deleteButton.addEventListener('click', (e: Event) => {
-         const userProductList: Product[] = JSON.parse(localStorage.getItem('products') as string)
-         const newUserProductList: Product[] = userProductList.filter((currProduct) => currProduct.id !== product.id);
-         localStorage.setItem('products', JSON.stringify(newUserProductList));
-         createProductList(newUserProductList); 
+      deleteButton.addEventListener("click", () => {
+         const userProductList: Product[] = JSON.parse(
+            localStorage.getItem("products") as string
+         );
+         const newUserProductList: Product[] = userProductList.filter(
+            (currProduct) => currProduct.id !== product.id
+         );
+
+         if (newUserProductList.length === 0) {
+            localStorage.removeItem("products");
+            const emptyListMessage = "your list of product is empty";
+            createMessageIfProductListIsFull(emptyListMessage);
+         } else {
+            localStorage.setItem(
+               "products",
+               JSON.stringify(newUserProductList)
+            );
+            createProductList(newUserProductList);
+         }
       });
 
       const productPrice = document.createElement("p");

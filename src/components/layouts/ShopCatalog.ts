@@ -34,10 +34,11 @@ export const ShopCatalog = `
     </div>
 
     <button type="submit" class="form__button">add product</button>
-
   </form>
 
+
   <section class="result-container product-container">
+    <button class="form__button show-product-list">show products list</button>
     <p class="result-container__title">Result</p>
     <p class="result-container__result numberOutput">...</p>
   </section>
