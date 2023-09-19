@@ -55,6 +55,24 @@
    overflow: auto;
 }
 
+.showProducts {
+   margin-top: 2rem;
+   padding: 0.5rem;
+   font-size: 1.5rem;
+   color: var(--black);
+   background-color: var(--text-dark);
+   border-radius: 0.5rem;
+   transition: 0.2s ease-in-out;
+
+   @media (width >= 1024px) {
+      &:hover {
+         cursor: pointer;
+         background-color: #7e7d7d;
+         transition: 0.2s ease-in-out;
+      }
+   }
+}
+
 .product-element {
    display: grid;
    grid-template-areas:
@@ -104,7 +122,7 @@
       grid-area: status;
    }
 
-   &__checkAvailableHandler {
+   &__checkAvailableButton {
       grid-area: checkButton;
       padding: 0.5rem;
       font-size: 1.4em;

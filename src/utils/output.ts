@@ -1,3 +1,4 @@
+import { Product } from "./../../types/CatalogItems";
 import { Pets } from "./../../types/Pets";
 
 export function validateResult(result: string) {
@@ -111,3 +112,79 @@ function createPetsList(pets: Pets[]) {
       petsList.appendChild(petElement);
    });
 }
+
+const createMessageIfProductListIsFull = (message: string) => {
+   const productContainer =
+      document.querySelector<HTMLElement>(".product-container")!;
+   productContainer.innerHTML = "";
+
+   const resultTitle = document.createElement("p");
+   resultTitle.classList.add("result-container__title");
+   resultTitle.textContent = "Result";
+
+   const resultMessage = document.createElement("p");
+   resultMessage.classList.add("result-container__result");
+   resultMessage.textContent = message;
+
+   const showProductList = document.createElement("button");
+   showProductList.classList.add("showProducts");
+   showProductList.textContent = "show products";
+   showProductList.addEventListener("click", () => {
+      const products: Product[] = JSON.parse(
+         localStorage.getItem("products") as string
+      );
+      createProductList(products);
+   });
+
+   productContainer.append(resultTitle, resultMessage, showProductList);
+};
+
+export const createProductList = (products: Product[]) => {
+   if (typeof products === "string") {
+      createMessageIfProductListIsFull(products);
+      return;
+   }
+
+   const productContainer = document.querySelector<HTMLElement>(".product-container")!;
+   productContainer.innerHTML = "";
+
+   const productList = document.createElement("ul");
+   productList.classList.add("product-list");
+
+   products.forEach((product) => {
+      const productElement = document.createElement("li");
+      productElement.classList.add("product-element");
+
+      const productTitle = document.createElement("h3");
+      productTitle.classList.add("product-element__title");
+      productTitle.textContent = product.name;
+
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("product-element__delete");
+      deleteButton.textContent = "X";
+
+      const productPrice = document.createElement("p");
+      productPrice.classList.add("product-element__price");
+      productPrice.textContent = `${product.price} €`;
+
+      const productStatus = document.createElement("p");
+      productStatus.classList.add("product-element__status");
+      productStatus.textContent =
+         product.available === "true" ? "available" : "unavailable";
+
+      const checkStatusButton = document.createElement("button");
+      checkStatusButton.classList.add("product-element__checkAvailableButton");
+      checkStatusButton.textContent = "check availability";
+
+      productElement.append(
+         productTitle,
+         deleteButton,
+         productPrice,
+         productStatus,
+         checkStatusButton
+      );
+      productList.appendChild(productElement);
+   });
+
+   productContainer.appendChild(productList);
+};

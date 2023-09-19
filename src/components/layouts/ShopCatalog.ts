@@ -37,16 +37,9 @@ export const ShopCatalog = `
 
   </form>
 
-  <section class="result-container">
-    <ul class="product-list">
-      <li class="product-element">
-        <h3 class="product-element__title">Test</h3>
-        <button class="product-element__delete">X</button>
-        <p class="product-element__price">350€</p>
-        <p class="product-element__status available">Unavailable</p>
-        <button class="product-element__checkAvailableHandler">check availability</button>
-      </li>
-    </ul>
+  <section class="result-container product-container">
+    <p class="result-container__title">Result</p>
+    <p class="result-container__result numberOutput">...</p>
   </section>
 
   <section class="test-images availability-images">
@@ -61,6 +54,3 @@ export const ShopCatalog = `
   </a>
 `;
 
-
-// <p class="result-container__title">Result</p>
-// <p class="result-container__result numberOutput">...</p>

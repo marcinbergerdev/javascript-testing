@@ -9,7 +9,8 @@ import {
    generateOutputTemplate,
 } from "./utils/output.ts";
 import { calculatePetsImages } from "./utils/math.ts";
-import { Items } from "../types/CatalogItems.ts";
+import { createProductList } from './utils/output.ts' 
+
 
 renderListContainer();
 
@@ -50,7 +51,7 @@ const formShopCatalogHandler = async (e: Event) => {
 
    const extractedProductData = extractProductData(formShopCatalog);
    const createdShopProduct = await createProduct(extractedProductData);
-   // createProductList();
+   createProductList(createdShopProduct);
 
 
 

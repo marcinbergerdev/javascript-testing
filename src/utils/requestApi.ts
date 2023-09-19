@@ -13,14 +13,17 @@ export async function transformToArrayOfPets(response: Response) {
 // DATA BASE REPLACED WITH LOCAL STORAGE
 export function saveProductData(product: Product) {
    const userProductList: Product[] | null = JSON.parse(localStorage.getItem("products")!);
+   
    let newUserProductList: Product[] = [];
-
-
 
    if (!userProductList && userProductList === null) {
       newUserProductList.push(product);
       localStorage.setItem("products", JSON.stringify(newUserProductList));
       return newUserProductList;
+   }
+
+   if (userProductList.length >= 10) {
+      return userProductList;
    }
 
    newUserProductList = userProductList;
