@@ -162,6 +162,12 @@ export const createProductList = (products: Product[]) => {
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("product-element__delete");
       deleteButton.textContent = "X";
+      deleteButton.addEventListener('click', (e: Event) => {
+         const userProductList: Product[] = JSON.parse(localStorage.getItem('products') as string)
+         const newUserProductList: Product[] = userProductList.filter((currProduct) => currProduct.id !== product.id);
+         localStorage.setItem('products', JSON.stringify(newUserProductList));
+         createProductList(newUserProductList); 
+      });
 
       const productPrice = document.createElement("p");
       productPrice.classList.add("product-element__price");
