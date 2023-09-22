@@ -1,13 +1,13 @@
 import { CalcNumber } from "./layouts/CalcNumber.ts";
 import { ValidStrings } from "./layouts/ValidStrings.ts";
-import { ApiRequest } from "./layouts/ApiRequest.ts";
-import { ShopCatalog } from './layouts/ShopCatalog.ts'
+import { ApiRequest } from "./layouts/requestApi.ts";
+import { ShopCatalog } from "./layouts/shopsCatalog.ts";
 
 
 import "../../scss/validStrings.scss"
-import "../../scss/apiRequest.scss"
-import "../../scss/shopCatalog.scss"
-import "../../scss/testWrapper.scss"
+import "../../scss/requestApi.scss"
+import "../../scss/shopsCatalog.scss"
+import "../../scss/testsWrapper.scss"
 
 export function renderListContainer() {
    const app = document.querySelector<HTMLDivElement>("#app")!;
