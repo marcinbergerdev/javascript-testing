@@ -3,10 +3,11 @@ import { ValidStrings } from "./layouts/ValidStrings.ts";
 import { ApiRequest } from "./layouts/ApiRequest.ts";
 import { ShopCatalog } from './layouts/ShopCatalog.ts'
 
-import "../../scss/testContainer.scss";
-import "../../scss/validString.scss";
-import "../../scss/apiRequest.scss";
+
+import "../../scss/validStrings.scss"
+import "../../scss/apiRequest.scss"
 import "../../scss/shopCatalog.scss"
+import "../../scss/testWrapper.scss"
 
 export function renderListContainer() {
    const app = document.querySelector<HTMLDivElement>("#app")!;
