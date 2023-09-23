@@ -13,7 +13,7 @@ import {
 import { Person } from "./parse";
 import { getPetsRequest, transformToArrayOfPets, saveProductData} from "./requestApi";
 
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuid } from "uuid";
 
 export function addNumbers(numbers: any) {
    let sum = 0;
@@ -67,8 +67,13 @@ export async function calculatePetsImages(apiLink: string) {
    return transformedPets;
 }
 
+
+
+
+
+
 export function setProductId(productData: Product) {
-   let id = uuidv4();
+   let id = uuid();
    return { id, ...productData };
 }
 
@@ -80,11 +85,10 @@ export function createProduct(productData: Product) {
       const product = setProductId(productData);
       const productResponse = saveProductData(product);
       validateMaxAmount(productResponse);
-      response = productResponse;
+      response = productResponse;           
       
    } catch (err: any) {
       response = err.message;
    }
-
    return response;
 }

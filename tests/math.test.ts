@@ -1,8 +1,9 @@
-import { describe, it, expect, beforeAll } from "vitest";
-import { addNumbers } from "../src/utils/math";
+import { describe, it, expect, vi, beforeAll } from "vitest";
+import { v4 as uuid } from "uuid";
+
+import { addNumbers, setProductId } from "../src/utils/math";
 import { calculatePetsImages } from "../src/utils/math";
 import { Pets } from "../types/Pets";
-import { getPetsRequest } from "../src/utils/requestApi";
 
 let correctApiLink: string;
 let wrongApiLink: string;
@@ -66,5 +67,50 @@ describe("calculatePetsImages()", () => {
       );
       expect(requestError).toBe("Something goes wrong try later");
       expect(requestError).toBeTypeOf("string");
+   });
+});
+
+vi.mock("uuid");
+
+describe("setProductId()", () => {
+   it("should execute uuid function", () => {
+      const testProduct = {
+         name: "testName",
+         price: "10",
+         available: "true",
+      };
+
+      setProductId(testProduct);
+
+      return expect(uuid).toBeCalled();
+   });
+
+   it("should return product with id", () => {
+      const testProduct = {
+         name: "testName",
+         price: "10",
+         available: "true",
+      };
+
+      return expect(setProductId(testProduct)).toEqual({
+         id: "testId",
+         ...testProduct,
+      });
+   });
+});
+
+describe("createProduct()", () => {
+   it("should create list of object", () => {
+      const testProduct = {
+         name: "testName",
+         price: "10",
+         available: "true",
+      };
+
+      try {
+         expect(setProductId(testProduct)).toBeTypeOf("object");
+      } catch (err) {
+         expect(err.message).toMatch("Sorry");
+      }
    });
 });

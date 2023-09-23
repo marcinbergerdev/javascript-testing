@@ -39,10 +39,17 @@ export function validateServerStatus(response: Response) {
    }
 }
 
+
+
+
+
+
+
+
 export function validateEmptyInputs(productData: Product) {
    for (const product in productData) {
       if (productData[product].trim().length === 0) {
-         throw new Error("Invalid all inputs!");
+         throw new Error("Sorry: Invalid all inputs!");
       }
    }
 }
@@ -50,7 +57,7 @@ export function validateEmptyInputs(productData: Product) {
 export function validateMaxAmount(products: Product[]) {
    if (!!products && products.length >= 10) {
       throw new Error(
-         "your list of product is full, please delete some products"
+         "Sorry: your list of product is full, please delete some products"
       );
    }
 }
