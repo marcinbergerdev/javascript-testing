@@ -55,6 +55,7 @@ export function validateEmptyInputs(productData: Product) {
 }
 
 export function validateMaxAmount(products: Product[]) {
+   console.log(products);
    if (!!products && products.length >= 10) {
       throw new Error(
          "Sorry: your list of product is full, please delete some products"

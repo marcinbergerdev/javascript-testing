@@ -7,6 +7,8 @@ import {
    validatePersonAgeType,
    validateServerError,
    validateServerStatus,
+   validateEmptyInputs,
+   validateMaxAmount,
 } from "../src/utils/validation";
 import { getPetsRequest } from "../src/utils/requestApi";
 
@@ -190,5 +192,37 @@ describe("validateServerStatus()", () => {
       };
 
       expect(validationResult).toThrowError("Sorry - server is down :(");
+   });
+});
+
+describe("validateEmptyInputs()", () => {
+   it("should throw an error message if empty data is provided", () => {
+      const product = {
+         name: "  ",
+         price: "  ",
+         available: "true", // default
+      };
+
+      const resultError = () => {
+         validateEmptyInputs(product);
+      };
+
+      expect(resultError).toThrow();
+      expect(resultError).toThrow("Sorry: Invalid all inputs!");
+   });
+});
+
+describe("validateMaxAmount()", () => {
+   it("should throw an error message if list of products have more then 10 element provided", () => {
+      const product = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]; // 11 element
+
+      const resultError = () => {
+         validateMaxAmount(product);
+      };
+
+      expect(resultError).toThrow();
+      expect(resultError).toThrow(
+         "Sorry: your list of product is full, please delete some products"
+      );
    });
 });
