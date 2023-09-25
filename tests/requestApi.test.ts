@@ -1,9 +1,15 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect, vi, beforeAll, beforeEach } from "vitest";
 import {
    getPetsRequest,
+   saveProductData,
    transformToArrayOfPets,
 } from "../src/utils/requestApi";
 import { Pets } from "../types/Pets";
+import { localStorage } from "../__mocks__/localStorage";
+
+vi.stubGlobal("localStorage", localStorage);
+
+
 
 let correctApiLink: string;
 let wrongApiLink: string;
@@ -11,6 +17,10 @@ let wrongApiLink: string;
 beforeAll(() => {
    correctApiLink = "https://api.thecatapi.com/v1/images/search?limit=10"; // correct link api to get response
    wrongApiLink = "https://api.thecatapi.com/v1/test"; // wrong link api to get error
+});
+
+beforeEach(() => {
+   localStorage.clear();
 });
 
 describe("getPetsRequest()", () => {
@@ -52,3 +62,52 @@ describe("transformToArrayOfPets()", async () => {
       expect(transformedPets.message).toMatch("404");
    });
 });
+
+describe("saveProductData()", () => {
+   it("should execute local story function", () => {
+      const product = {
+         id: "testId",
+         name: "testName",
+         price: "10",
+         available: "true",
+      };
+
+      saveProductData(product);
+
+      expect(localStorage.getItem).toBeCalled();
+      expect(localStorage.setItem).toBeCalled();
+   });
+
+   it("should execute local story function with arguments", () => {
+      const product = { id: "testId", name: "testName", price: "10", available: "true"};
+      const newProduct = [ { id: "testId", name: "testName", price: "10", available: "true",}];
+      
+      saveProductData(product);
+
+      expect(localStorage.getItem).toBeCalledWith("products");
+      expect(localStorage.setItem).toBeCalledWith("products",JSON.stringify(newProduct));
+   });
+
+   it("should create array of products", () => {
+      const product = {
+         id: "testId",
+         name: "testName",
+         price: "10",
+         available: "true",
+      };
+
+      const newProduct = [
+         {
+            id: "testId",
+            name: "testName",
+            price: "10",
+            available: "true",
+         },
+      ];
+
+      const resultProduct = saveProductData(product);
+
+      expect(resultProduct).toEqual(newProduct);
+   });
+});
+

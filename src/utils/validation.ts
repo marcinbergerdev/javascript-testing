@@ -39,13 +39,6 @@ export function validateServerStatus(response: Response) {
    }
 }
 
-
-
-
-
-
-
-
 export function validateEmptyInputs(productData: Product) {
    for (const product in productData) {
       if (productData[product].trim().length === 0) {
@@ -55,7 +48,6 @@ export function validateEmptyInputs(productData: Product) {
 }
 
 export function validateMaxAmount(products: Product[]) {
-   console.log(products);
    if (!!products && products.length >= 10) {
       throw new Error(
          "Sorry: your list of product is full, please delete some products"

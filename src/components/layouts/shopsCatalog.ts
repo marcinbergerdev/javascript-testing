@@ -44,10 +44,10 @@ export const ShopCatalog = `
   </section>
 
   <section class="test-images availability-images">
-    <img class="test-images__img" src="/images/tests/numbers/test1.png" alt="example-test" />
-    <img class="test-images__img" src="/images/tests/numbers/test2.png" alt="example-test" />
-    <img class="test-images__img" src="/images/tests/numbers/test3.png" alt="example-test" />
-    <img class="test-images__img" src="/images/tests/numbers/test4.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/catalog/test1.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/catalog/test2.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/catalog/test3.png" alt="example-test" />
+    <img class="test-images__img" src="/images/tests/catalog/test4.png" alt="example-test" />
   </section>
 
   <a class="test-link" href="https://github.com/marcinbergerdev/javascript-testing/tree/main/tests">

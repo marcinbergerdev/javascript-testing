@@ -73,6 +73,7 @@ describe("calculatePetsImages()", () => {
 vi.mock("uuid");
 
 describe("setProductId()", () => {
+
    it("should execute uuid function", () => {
       const testProduct = {
          name: "testName",
@@ -86,31 +87,27 @@ describe("setProductId()", () => {
    });
 
    it("should return product with id", () => {
+
       const testProduct = {
          name: "testName",
          price: "10",
          available: "true",
       };
 
-      return expect(setProductId(testProduct)).toEqual({
-         id: "testId",
-         ...testProduct,
-      });
+      return expect(setProductId(testProduct)).toEqual({id: "testId",...testProduct,});
    });
 });
 
 describe("createProduct()", () => {
    it("should create list of object", () => {
-      const testProduct = {
-         name: "testName",
-         price: "10",
-         available: "true",
-      };
+
+      const testProduct = { name: "testName", price: "10", available: "true"};
 
       try {
          expect(setProductId(testProduct)).toBeTypeOf("object");
       } catch (err) {
          expect(err.message).toMatch("Sorry");
       }
+      
    });
 });
